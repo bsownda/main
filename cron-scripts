@@ -1,0 +1,228 @@
+NS23: tmsuser
+[tmsuser@ns23 ~]$ crontab -l | grep -i watch
+55 09-23 * * * /usr/bin/python /public/gdp/OPSScript/zabbix/NOD.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm1.log
+35,59 23 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/daily_run.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/daily_run.log > /dev/null 2>&1
+00 5,10,15,21 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/Alert_Zabbix.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Alert_Zabbix.log > /dev/null 2>&1
+10 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/alerts_10min.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/alerts_10min.log > /dev/null 2>&1
+15 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/Alert_Zabbix.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Alert_Zabbix.log > /dev/null 2>&1 
+00 05,13,17,22 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/Alert_Zabbix_doc.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Alert_Zabbix_doc.log > /dev/null 2>&1
+00 10 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/Alert_First_Due.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Alert_First_Due.log > /dev/null 2>&1
+00 09,13,16,20 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/wtf_not_attempt.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/wtf_not_attempt.log > /dev/null 2>&1
+00 02,03 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/Alert02clock.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Alert02clock.log > /dev/null 2>&1
+00 12,15,18,21,22 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/wrong_communication.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/wrong_communication.log > /dev/null 2>&1
+00 06,08 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/moda_alert.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/moda_alert.log > /dev/null 2>&1
+*/15 18,19,20 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/waterfall_csv.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/waterfall_csv_alert.log > /dev/null 2>&1
+00 10 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/Collection_Alert.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Collection_Alert.log > /dev/null 2>&1
+00 21 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/Night_collection_Alert.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Collection_Alert.log > /dev/null 2>&1
+50 */1 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/Alert_hourly.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Alert_hourly.out > /dev/null 2>&1
+*/30 11-20 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/ca_instance_zabbix.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ca_ins_zabbix.out > /dev/null 2>&1
+#00 01,03,05 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/zabbix/Waterfall_Attempt.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Waterfall_Attempt.log > /dev/null
+*/15 10-12 * * 1-5 python /public/gdp/OPSScript/zabbix/DD_uploads_Zabbix.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm1.log > /dev/null
+
+NS23:root
+
+[root@ns23 balasubramani.s]# crontab -l | grep -i watch
+##00 */1 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Alert_Zabbix.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+###00 */1 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Alert_Zabbix_doc.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+###00 01 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Alert_Zabbix_doc.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+###30 12 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Alert_Zabbix_doc.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+###15 17 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Alert_Zabbix_doc.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+###30 21 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Alert_Zabbix_doc.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+###00 19,20,21 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/waterfall_csv.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+##00 01,03,05 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Waterfall_Attempt.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+###59 22,23 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/daily_run.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+##*/30 * * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Empty_Agreement.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+###00 */1 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Alert_hourly.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+##*/5 * * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/URL_Check.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm.log > /dev/null
+###00 02 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Alert_Inuse.py  |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Alert_Inuse.log > /dev/null
+###30,40,50 00 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Alert_First_Due.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Aler_First_Due.log > /dev/null
+###*/15 01 * * * /usr/local/gdp/bin/python /public/gdp/OPSScript/zabbix/Alert_First_Due.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Aler_First_Due.log > /dev/null
+###00 10 * * * /usr/bin/python /public/gdp/OPSScript/zabbix/NOD.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_zabbix_bm1.log > /dev/null
+################################### LOG WATCH ###########################################
+45 23 * * * /bin/sh /root/scripts/logs_watch_compress.sh  > /dev/null 2>&1
+
+
+care1:devopsotrs
+[root@care1 cron]# cat devopsotrs | grep -i watch
+#00 */4 * * * python email_encryption.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - > /tmp/ga_zabbix_care1.log
+00 */1 * * * /usr/bin/python /home/devopsotrs/zabbix/email_encryption.py |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - > /tmp/ga_zabbix_care1.log
+
+
+lsops :
+
+root:05 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/acquisition_1hr.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/acquisition_1hr.log  > /dev/null 2>&1
+root:50 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/acquisition_4hr.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/acquisition_4hr.log > /dev/null 2>&1
+root:10 3,9,15,21 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/acquisition_6hr.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/acquisition_6hr.log  > /dev/null 2>&1
+root:20 11,12 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/alert_11clk.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/alert_11clk.log > /dev/null 2>&1
+root:20 4,5 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/alert_4clk.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/alert_4clk.log > /dev/null 2>&1
+root:*/15 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/ErrorCode.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ErrorCode.log > /dev/null 2>&1
+root:*/30 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/fraud_aa_3hr.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/fraud_aa_3hr.log > /dev/null 2>&1
+root:12 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/ivrsfailure.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ivrsfailure.log > /dev/null 2>&1
+root:*/20 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/lowest_dc_pass.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/lowest_dc_pass.log > /dev/null 2>&1
+root:*/10 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/MaturitySegment.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/MaturitySegment.log > /dev/null 2>&1
+root:07 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/payout_1hr.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/payout_1hr.log > /dev/null 2>&1
+root:*/5 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/payout_5min.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/payout_5min.log > /dev/null 2>&1
+root:05 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/RejectReasonMailer.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/RejectReasonMailer.log > /dev/null 2>&1
+root:*/30 11-23 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/CAInstance.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -  2>>/tmp/CAInstance.log > /dev/null 2>&1
+root:##30 08,15,19,23 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/Alert/Doc_verify.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Doc_verify.log > /dev/null 2>&1
+root:##30 06,07,08,15,19,23 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/Alert/Doc_verify.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Doc_verify.log > /dev/null 2>&1
+root:30  00,01,06,07,08,15,19,23 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/Alert/Doc_verify.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Doc_verify.log 2>&1
+root:05 14-20 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/DNP_Check.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/DNP_Check.out > /dev/null 2>&1
+root:05 14-20 * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/alert_14_20.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -  2>>/tmp/alert_14_20.log > /dev/null 2>&1
+root:*/5 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition_new/acquisition_5min.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/acquisition_5min.log > /dev/null 2>&1
+root:################################### LOG WATCH ###########################################
+root:45 23 * * * /bin/sh /root/scripts/logs_watch_compress.sh  > /dev/null 2>&1
+ranjith.kumar:#05 18 * * * /usr/local/python_2.7_10/bin/python -W ignore wdl_window.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+ranjith.kumar:#55 23 * * * /usr/local/python_2.7_10/bin/python -W ignore wdl_window.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+ranjith.kumar:05 18 * * * /usr/local/python_2.7_10/bin/python -W ignore wdl_window_drafty.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+ranjith.kumar:55 23 * * * /usr/local/python_2.7_10/bin/python -W ignore wdl_window_drafty.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+grep: vivek.karthikannamalai.ac: No such file or directory
+mohankumar.thiruvenkadam:#*/15 * * * * sudo -u ukpdl /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix_alerts/LoanAcquisition/acquisition_30min_moh.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+[root@lsops cron]# 
+
+
+
+
+rs11 :
+
+
+ukpdl:*/1 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Sem_Service_Status.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Sem_Service_Status.log > /dev/null 2>&1
+
+rs1 : 
+
+ukpdl:*/1 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Zabbix/Sem_Service_Status.py  | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Sem_Service_Status.log > /dev/null 2>&1
+[root@rs1 cron]# 
+
+rs2 :
+
+ukpdl:*/1 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Zabbix/Sem_Service_Status.py  | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Sem_Service_Status.log > /dev/null 2>&1
+
+
+rs12 : 
+
+ukpdl:*/1 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Sem_Service_Status.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Sem_Service_Status.log > /dev/null 2>&1
+
+rs6 :
+[root@rs6 cron]#  grep -i "hawkeye\|watch"  root ukpdl ranjith.kumar drafty
+root:*/5 * * * * /usr/bin/python /public/gdp/OPSScript/Zabbix/zabbix_celery.py  | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - > /dev/null 2>&1
+root:*/5 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Zabbix/alert_500error.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>> /tmp/alert_500error.out > /dev/null 2>&1
+root:#######Scheduled by Jerry for logwatch compression####
+root:45 23 * * * /bin/sh /root/scripts/logs_watch_compress.sh  > /dev/null 2>&1
+ukpdl:#####*/15 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Zabbix/zabbix_rti.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/zabbix_rti.out > /dev/null 2>&1
+ukpdl:*/5 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Zabbix/url_check_mobilapp.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/zabbix_rti.out > /dev/null 2>&1
+[root@rs6 cron]# 
+
+rs8:
+
+ukpdl:###########*/15 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Zabbix/zabbix_rti.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/zabbix_rti.out > /dev/null 2>&1
+ukpdl:*/5 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Zabbix/url_check_mobilapp.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/zabbix_rti.out > /dev/null 2>&1
+
+
+etm :
+
+[root@etm cron]#  grep -i "hawkeye\|watch"  root ukpdl
+root:*/5 * * * * /usr/bin/python /public/gdp/OPSScript/zabbix_etmcelery.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - > /dev/null 2>&1 
+[root@etm cron]# 
+
+
+ensemble : 
+
+ukpdl:*/1 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Sem_Service_Status.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Sem_Service_Status.log > /dev/null 2>&1 
+
+nrtapp :
+
+ukpdl:*/1 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix/Tracker_Monitor.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+ukpdl:00 09 01 * * /usr/local/python_2.7_10/bin/python /public/gdp/OPS/src/zabbix/TAC_zabbix.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+[root@nrtapp cron]# 
+
+opsapp :
+
+[root@opsapp cron]# grep -i "hawkeye\|watch"  *
+devuser:*/1 * * * * python /public/codes/devops/Alerts/Process_check_VirtualInsight.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:*/20 * * * * python /public/codes/devops/Alerts/waterfall_connection_error.py| /usr/local/bin/zabbix_sender -z hawkeye.ls.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:*/15 * * * * python /public/codes/devops/Alerts/infraalert.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:*/10 * * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/appl_flow_10mins.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 
+devuser:*/15 * * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/appl_flow_15mins.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:55 */1 * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/appl_flow_1hr.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:50 */2 * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/appl_flow_2hrs.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:*/30 * * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/appl_flow_4hr.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:53 */1 * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/appl_flow_wdl.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:00 */1 * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/communication_1hr.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:*/30 00-02 * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/dailyrun_0015.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:05 12,18 * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/di_wdl_window.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:56 23 * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/di_wdl_window.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:17 11-20  * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/communication_11_20.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:*/30 * * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/appl_flow_30mins.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:00 10 * * * python /public/codes/devops/Alerts/Zabbix/LoanAcquisition_2.0/eligibility_deviation.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:*/1 * * * * python /public/codes/devops/Alerts/offline_script_time.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+devuser:00 08,19 * * * python /public/codes/devops/Alerts/Zabbix/Reminder.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+ranjith.kumar:#05 12,18 * * * /usr/local/python_2.7_10/bin/python devops/Alerts/Zabbix/LoanAcquisition_2.0/di_wdl_window.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+ranjith.kumar:#56 23 * * * PATH=/usr/local/python_2.7_10/bin:$PATH:$HOME/bin:/bin:/usr/bin;LD_LIBRARY_PATH=/usr/local/python_2.7_10/lib:/usr/local/openssl_1_0_1p/lib:$LD_LIBRARY_PATH;/usr/local/python_2.7_10/bin/python devops/Alerts/Zabbix/LoanAcquisition_2.0/di_wdl_window.py | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i -
+root:#### logwatch compression####
+root:45 23 * * * /bin/sh /root/scripts/logs_watch_compress.sh  > /dev/null 2>&1
+[root@opsapp cron]# 
+
+
+NRTDB-Geo: root
+
+[root@nrtdb-geo cron]# crontab -l | grep -i haw
+*/5 * * * * perl /root/scripts/ga_mysql_stats.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysql.log > /dev/null 2>&1
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats_DB1.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysql.log > /dev/null 2>&1
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats_DB5.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysql.log > /dev/null 2>&1
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats_ns19.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysql_ns19.log > /dev/null 2>&1
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats_ns14.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysql_ns14.log > /dev/null 2>&1
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats_ns22.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysql_ns22.log > /dev/null 2>&1
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats_hash.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysql_hash.log > /dev/null 2>&1
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysql.log > /dev/null 2>&1
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats_piwik.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysql_piwik.log > /dev/null 2>&1
+
+DB5-Geo:root
+[root@db5-geo gaadmin]# crontab -l | grep -i 52.71.70.26
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats.pl |/usr/local/bin/zabbix_sender -z 52.71.70.26 -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+*/5 * * * * perl /root/scripts/ga_mysql_stats.pl |/usr/local/bin/zabbix_sender -z 52.71.70.26 -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+*/1 * * * * /bin/sh /root/scripts/crond_status.sh | /usr/local/bin/zabbix_sender -z 52.71.70.26 -c /usr/local/etc/zabbix_agentd.conf -i - 1>/tmp/zabb_alert_crond.out 2>/tmp/zabb_alert_crond.err
+
+DB1-Geo:root
+[root@db1-geo gaadmin]# crontab -l | grep -i 52.71.70.26
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats.pl |/usr/local/bin/zabbix_sender -z 52.71.70.26 -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+*/5 * * * * perl /root/scripts/ga_mysql_stats.pl |/usr/local/bin/zabbix_sender -z 52.71.70.26 -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+*/1 * * * * /bin/sh /root/scripts/crond_status.sh | /usr/local/bin/zabbix_sender -z 52.71.70.26 -c /usr/local/etc/zabbix_agentd.conf -i - 1>/tmp/zabb_alert_crond.out 2>/tmp/zabb_alert_crond.err
+
+
+db-ensemble-geo : root
+[root@db-ensemble-geo gaadmin]# crontab -l | grep -i watch
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats.pl |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+*/5 * * * * perl /root/scripts/ga_mysql_stats.pl |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+*/1 * * * * /bin/sh /root/scripts/crond_status.sh | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 1>/tmp/zabb_alert_crond.out 2>/tmp/zabb_alert_crond.err > /dev/null 2>&1
+
+
+sapdb-geo : root
+[root@sapdb-geo centos]# crontab -l | grep haw
+#*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+*/5 * * * * perl /root/scripts/ga_mysql_stats.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+*/1 * * * * /bin/sh /root/scripts/crond_status.sh | /usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 1>/tmp/zabb_alert_crond.out 2>/tmp/zabb_alert_crond.err > /dev/null 2>&1
+
+sapdb-geo : ukpdl
+[root@sapdb-geo cron]# cat ukpdl | grep -i watch
+*/1 * * * * /usr/local/python_2.7_10/bin/python /public/gdp/OPSScript/Sem_Service_Status.py | /usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/Sem_Service_Status.log > /dev/null 2>&1 
+
+DB2-Geo:root
+[root@db2-geo centos]# crontab -l | grep watch
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats.pl |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+*/5 * * * * perl /root/scripts/ga_mysql_stats.pl |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+[root@db2-geo centos]# 
+
+DB6-Geo:root
+[root@db6-geo gaadmin]# crontab -l | grep -i watch247
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats.pl |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+*/5 * * * * perl /root/scripts/ga_mysql_stats.pl |/usr/local/bin/zabbix_sender -z watch247.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysqlstatlog > /dev/null
+
+hawkeye-gf:root
+[root@hawkeye-gf ~]# crontab -l | grep -i hawkeye
+*/5 * * * * perl /root/scripts/ga_mysql_stats.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/ga_mysql.log > /dev/null
+*/5 * * * * perl /root/scripts/ga_mysql_SlaveStats.pl |/usr/local/bin/zabbix_sender -z hawkeye.globalanalytics.net -c /usr/local/etc/zabbix_agentd.conf -i - 2>>/tmp/mysql_sl.log > /dev/null
+
+
+
+
+
